@@ -1,11 +1,11 @@
 import './App.css';
 import React from "react";
-import UserCards from './components/UserCards';
+import RenderCards from './components/RenderCards';
 
 function App() {
   return (
     <div>
-      <UserCards />
+      <RenderCards />
     </div>
   );
 }

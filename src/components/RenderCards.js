@@ -2,7 +2,7 @@ import API from '../utils/API';
 import React, { Component } from "react";
 import ResultList from './ResultList'
 
-class UserCards extends Component {
+class RenderCards extends Component {
 
     state = {
         results: []
@@ -33,4 +33,4 @@ class UserCards extends Component {
 
 
 
-export default UserCards;
+export default RenderCards;
