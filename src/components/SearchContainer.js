@@ -51,7 +51,7 @@ class SearchContainer extends Component {
     render() {
         return (
             <>
-                <section className="hero is-link">
+                <section className="hero is-link is-fullwidth">
                     <div className="hero-body is-flex is-justify-content-center">
                         <div className="has-text-centered">
                             <p className="title">
@@ -65,10 +65,9 @@ class SearchContainer extends Component {
                         </div>
                     </div>
                 </section>
-                <div className="container">
-                    <div className="notification is-primary mt-5">
-                        <EmployeeTable employees={this.state.filtered} />
-                    </div>
+                <br />
+                <div className="mt-5">
+                    <EmployeeTable employees={this.state.filtered} />
                 </div>
             </>
         )

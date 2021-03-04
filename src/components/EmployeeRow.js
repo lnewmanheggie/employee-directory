@@ -10,10 +10,18 @@ function EmployeeRow({ first, last, dob, email, thumbnail, cell }) {
                     </figure>
                 </div>
             </td>
-            <td>{first} {last}</td>
-            <td>{email}</td>
-            <td>{cell}</td>
-            <td>{dob}</td>
+            <td>
+                <div className="mt-2">{first} {last}</div>
+            </td>
+            <td>
+                <div className="mt-2">{email}</div> 
+            </td>
+            <td>
+                <div className="mt-2">{cell}</div>
+            </td>
+            <td>
+                <div className="mt-2">{dob}</div>
+            </td>
         </tr>
     )
 }

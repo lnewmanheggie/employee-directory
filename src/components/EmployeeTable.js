@@ -31,13 +31,6 @@ function EmployeeTable(props) {
                 }
             </tbody>
         </table>
-
-        // <div>
-
-        //     {
-        //         props.employees.map((emp, i) => <EmployeeRow key={i + "-row"}  {...emp} />)
-        //     }
-        // </div>
     );
 }
 

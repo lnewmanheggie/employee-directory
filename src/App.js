@@ -4,9 +4,9 @@ import SearchContainer from './components/SearchContainer';
 
 function App() {
   return (
-    <div>
+    <>
       <SearchContainer />
-    </div>
+    </>
   );
 }
 
