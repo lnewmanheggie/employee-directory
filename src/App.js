@@ -1,11 +1,11 @@
 import './App.css';
 import React from "react";
-import RenderCards from './components/RenderCards';
+import SearchContainer from './components/SearchContainer';
 
 function App() {
   return (
     <div>
-      <RenderCards />
+      <SearchContainer />
     </div>
   );
 }
