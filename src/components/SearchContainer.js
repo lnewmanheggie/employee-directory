@@ -92,6 +92,7 @@ class SearchContainer extends Component {
                 borderBottom: "1rem solid #fb8500"
             }
         }
+        
         return (
             <>
                 <section className="hero is-link is-fullwidth" style={styles.hero}>

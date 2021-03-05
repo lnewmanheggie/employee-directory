@@ -12,7 +12,6 @@ function SearchBar(props) {
                         onChange={props.handleInputChange}
                         value={props.search}
                         name="search"
-                        // onSubmit={props.handleFormSubmit}
                     />
                 </div>
             </form>
