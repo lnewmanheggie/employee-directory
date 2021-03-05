@@ -8,6 +8,6 @@
 
 ## Description
 
-Application that displays dummy employee data and allows user to search the whole directory, or order by name or dob.
+Application that displays dummy employee data and allows user to search the whole directory, or order by name or date of birth.
 Built in React.
 
