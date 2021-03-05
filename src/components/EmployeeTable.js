@@ -3,16 +3,7 @@ import EmployeeRow from './EmployeeRow';
 
 function EmployeeTable(props) {
     return (
-        <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
-            <thead>
-                <tr>
-                    <th>Photo</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>DOB</th>
-                </tr>
-            </thead>
+
             <tbody>
                 {
                     props.employees.map((emp, i) => {
@@ -30,7 +21,6 @@ function EmployeeTable(props) {
                     })
                 }
             </tbody>
-        </table>
     );
 }
 

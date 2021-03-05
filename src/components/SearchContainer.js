@@ -34,20 +34,47 @@ class SearchContainer extends Component {
         dob: moment(emp.dob.date).format("MM-DD-YYYY")
     })
 
-    handleInputChange = event =>
+    handleInputChange = event => {
+        const name = event.target.name;
+        const value = event.target.value
+
+        const filteredEmp = this.state.results.filter(x => x.first_name.toLowerCase().startsWith(value))
+        
         this.setState({
-            [event.target.name]: event.target.value.toLowerCase()
+            [name]: value,
+            filtered: filteredEmp
+        });
+    }
+
+    orderAlphabetically = () => {
+        const ordered = this.state.filtered.sort((a, b) => {
+            let fa = a.first_name.toLowerCase(),
+                fb = b.first_name.toLowerCase();
+        
+            if (fa < fb) {
+                return -1;
+            }
+            if (fa > fb) {
+                return 1;
+            }
+            return 0;
         });
 
-    handleFormSubmit = (e) => {
-        e.preventDefault()
-
         this.setState({
-            filtered: this.state.results.filter(x =>
-            Object.values(x).some(y => y.toLowerCase().includes(this.state.search)))
+            filtered: ordered
         })
     }
 
+    orderByAge = () => {
+        const ordered = this.state.filtered.sort((a, b) => {
+            return a.dob.substr(6) - b.dob.substr(6)
+        });
+
+        this.setState({
+            filtered: ordered
+        })
+    }
+    
     render() {
         return (
             <>
@@ -59,7 +86,6 @@ class SearchContainer extends Component {
                             </p>
                             <SearchBar
                                 search={this.state.search}
-                                handleFormSubmit={this.handleFormSubmit}
                                 handleInputChange={this.handleInputChange}
                             />
                         </div>
@@ -67,7 +93,18 @@ class SearchContainer extends Component {
                 </section>
                 <br />
                 <div className="mt-5">
-                    <EmployeeTable employees={this.state.filtered} />
+                    <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th onClick={this.orderAlphabetically}>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th onClick={this.orderByAge}>DOB</th>
+                            </tr>
+                        </thead>
+                        <EmployeeTable employees={this.state.filtered} orderAlphabetically={this.orderAlphabetically}/>
+                    </table>
                 </div>
             </>
         )
