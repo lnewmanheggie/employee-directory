@@ -1,0 +1,47 @@
+/* table styles by Davide Rizzo
+    https://codepen.io/davidelrizzo/pen/eJwqzp
+ */
+
+ * {
+     font-family: 'Nunito Sans', sans-serif;
+ }
+
+ .title {
+     font-size: 3.2rem;
+     margin-bottom: 2.5rem !important;
+ }
+
+ .subtitle {
+     font-size: 1rem;
+ }
+
+.table {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.cell {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.8em 1.2em;
+    overflow: hidden;
+    list-style: none;
+    border: solid 3px white;
+    background-color: #a8adb3;
+}
+
+.table > .cell  { 
+    width: 20%; 
+}
+
+@media only screen and (max-width: 600px) {
+    .table > .cell  { 
+        width: 100%; 
+    }
+
+}

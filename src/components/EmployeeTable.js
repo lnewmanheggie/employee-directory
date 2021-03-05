@@ -4,7 +4,7 @@ import EmployeeRow from './EmployeeRow';
 function EmployeeTable(props) {
     return (
 
-            <tbody>
+            <>
                 {
                     props.employees.map((emp, i) => {
                         return (
@@ -20,7 +20,7 @@ function EmployeeTable(props) {
                         )
                     })
                 }
-            </tbody>
+            </>
     );
 }
 

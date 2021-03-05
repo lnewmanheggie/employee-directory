@@ -1,28 +1,38 @@
 import React from 'react';
 
 function EmployeeRow({ first, last, dob, email, thumbnail, cell }) {
+
+    const styles = {
+        cell: {
+            backgroundColor: "lightgrey"
+        },
+
+        email: {
+            backgroundColor: "lightgrey",
+            fontSize: "0.9rem"
+        }
+    }
+
     return (
-        <tr>
-            <td>
-                <div className="is-flex is-justify-content-center">
-                    <figure className="image is-64x64">
-                        <img src={thumbnail} />
-                    </figure>
-                </div>
-            </td>
-            <td>
-                <div className="mt-2">{first} {last}</div>
-            </td>
-            <td>
-                <div className="mt-2">{email}</div> 
-            </td>
-            <td>
-                <div className="mt-2">{cell}</div>
-            </td>
-            <td>
-                <div className="mt-2">{dob}</div>
-            </td>
-        </tr>
+        <>
+            <div className="cell" style={styles.cell}>
+                <figure className="image is-64x64">
+                    <img src={thumbnail} />
+                </figure>
+            </div>
+            <div className="cell" style={styles.cell}>
+                <div>{first} {last}</div>
+            </div>
+            <div className="cell" style={styles.email}>
+                <div>{email}</div>
+            </div>
+            <div className="cell" style={styles.cell}>
+                <div>{cell}</div>
+            </div>
+            <div className="cell" style={styles.cell}>
+                <div>{dob}</div>
+            </div>
+        </>
     )
 }
 

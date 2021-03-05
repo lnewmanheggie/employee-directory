@@ -3,6 +3,8 @@ import SearchBar from './SearchBar';
 import EmployeeTable from './EmployeeTable';
 import API from '../utils/API';
 import moment from 'moment';
+import './tableStyle.css';
+
 
 
 class SearchContainer extends Component {
@@ -25,6 +27,7 @@ class SearchContainer extends Component {
             .catch(err => console.log(err));
     }
 
+    // pull out relevant data from api call
     filteredEmployeeResults = emp => ({
         first_name: emp.name.first,
         last_name: emp.name.last,
@@ -34,6 +37,7 @@ class SearchContainer extends Component {
         dob: moment(emp.dob.date).format("MM-DD-YYYY")
     })
 
+    // search function
     handleInputChange = event => {
         const name = event.target.name;
         const value = event.target.value
@@ -74,15 +78,30 @@ class SearchContainer extends Component {
             filtered: ordered
         })
     }
+
+ 
     
     render() {
+        const styles = {
+            cell: {
+                fontWeight: "bold"
+            },
+
+            hero: {
+                backgroundColor: "#023047",
+                borderBottom: "1rem solid #fb8500"
+            }
+        }
         return (
             <>
-                <section className="hero is-link is-fullwidth">
+                <section className="hero is-link is-fullwidth" style={styles.hero}>
                     <div className="hero-body is-flex is-justify-content-center">
                         <div className="has-text-centered">
                             <p className="title">
                                 Employee Search
+                            </p>
+                            <p className="subtitle">
+                                <em>Click on name to sort alphabetically or dob to sort by birth year</em>
                             </p>
                             <SearchBar
                                 search={this.state.search}
@@ -92,19 +111,25 @@ class SearchContainer extends Component {
                     </div>
                 </section>
                 <br />
-                <div className="mt-5">
-                    <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
-                        <thead>
-                            <tr>
-                                <th>Photo</th>
-                                <th onClick={this.orderAlphabetically}>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th onClick={this.orderByAge}>DOB</th>
-                            </tr>
-                        </thead>
+                <div className="mt-1">
+                    <div className="table">
+                        <div className="cell">
+                            <h2 style={styles.cell}>Photo</h2>
+                        </div>
+                        <div className="cell" onClick={this.orderAlphabetically}>
+                            <h2 style={styles.cell}>Name</h2>
+                        </div>
+                        <div className="cell">
+                            <h2 style={styles.cell}>Email</h2>
+                        </div>
+                        <div className="cell">
+                            <h2 style={styles.cell}>Cell</h2>
+                        </div>
+                        <div className="cell" onClick={this.orderByAge}>
+                            <h2 style={styles.cell}>DOB</h2>
+                        </div>
                         <EmployeeTable employees={this.state.filtered} orderAlphabetically={this.orderAlphabetically}/>
-                    </table>
+                    </div>
                 </div>
             </>
         )
